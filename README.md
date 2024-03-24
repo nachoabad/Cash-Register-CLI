@@ -46,3 +46,7 @@ This project uses RSpec for testing. To run the test suite, ensure you are in th
 - Although fully tested in the End-to-End feature spec, the Discount classes need unit testing for future refactoring.
 
 ## Showcase video
+
+https://github.com/nachoabad/cash_register_cli/assets/7006471/c08cc928-52e5-4ce7-8e6c-aade3fe2c0ea
+
+
