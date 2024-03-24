@@ -41,10 +41,16 @@ RSpec.describe LineItem do
   end
 
   describe '#total' do
-    it 'calculates the total price based on quantity and original price' do
-      line_item = LineItem.new('GR1', 3)
+    let(:calculated_total) { 20.0 }
+    let(:line_item) { LineItem.new('GR1', 2) }
 
-      expect(line_item.total).to eq(30.0)
+    before do
+      allow(LineItem::TotalCalculator).to receive(:call).with(line_item).and_return(calculated_total)
+    end
+
+    it 'calculates the total using the TotalCalculator' do
+      expect(line_item.total).to eq(calculated_total)
+      expect(LineItem::TotalCalculator).to have_received(:call).with(line_item)
     end
   end
 end

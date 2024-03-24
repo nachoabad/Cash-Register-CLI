@@ -1,4 +1,5 @@
 require_relative 'config'
+require_relative 'line_item/total_calculator'
 
 class LineItem
   attr_reader :product_code, :quantity
@@ -17,6 +18,6 @@ class LineItem
   end
 
   def total
-    original_price * quantity
+    TotalCalculator.call(self)
   end
 end
