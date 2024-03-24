@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+require_relative '../lib/cash_register'
+
+stty_save = `stty -g`.chomp
+trap("INT") { system "stty", stty_save; exit }
+
+CashRegister::CLI.run
+
